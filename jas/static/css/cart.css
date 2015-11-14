@@ -1,0 +1,51 @@
+.ammount{
+	width: 30px;
+}
+
+.rightal{
+    font-size: 20px;
+    text-align: right;
+}
+
+.price{
+    color: #007C00;
+}
+
+.add{
+    font-size: 20px;
+}
+
+.good a{
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.glyphicon.glyphicon-remove{
+    font-size: 15px;
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.tablepad {
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+}
+
+.custheader {
+    font-size: 20px;
+}
+
+.invis {
+    background: transparent;
+    border: none !important;
+    font-size:20;
+}
+
+.tabali {
+	text-align: center;
+}
+
+th {
+	text-align: center;
+}

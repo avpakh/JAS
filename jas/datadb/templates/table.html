@@ -1,0 +1,173 @@
+{% extends "index_db.html" %}
+
+{% block content %}
+
+   {% load render_table from django_tables2 %}
+
+  <div class="row">
+                <div class="col-lg-10">
+                    <h4 class="page-header">Табличное представление наблюдений за уровнем воды</h4>
+                </div>
+                <div class="col-lg-1 text-center">
+                {% if tableav  %}
+
+                 <li><a href="/datadb/update"> Обновить <i class="fa fa-refresh fa-3x "></i> </a> </li>
+
+                {% endif %}
+
+                <!-- /.col-lg-12 -->
+  </div>
+
+
+    <div class="col-lg-12">
+
+   <a role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+           Выбор станции АГС из списка <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+
+      {% for station in stations %}
+      <li><a href="{% url 'detail' station.id_station  %}"> {{ station.description }}  </a> </li>
+      {% endfor %}
+
+    </ul>
+  </a>
+     </div>
+
+
+  </div>
+
+
+   <div class="col-lg-12 ">
+
+    <ul class="nav nav-tabs">
+
+                        <li class="active"><a href="#day" data-toggle="tab"> Данные в разрезе суток </a></li>
+
+                        <li><a href="#hour" data-toggle="tab">Данные в рарезе часа</a></li>
+
+
+                </ul>
+
+
+
+                <div class="tab-content">
+
+                        <div class="tab-pane active" id="day">
+
+                        <div class="panel panel-primary ">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <i class="fa fa-database fa-2x"></i>
+
+                                </div>
+                                <div class="col-xs-3">
+
+                                   <p> Обновлено: {{ ld.date_observation }}  </p>
+
+                                </div>
+
+                               <div class="col-xs-5 text-left">
+                                    <div class="input"></div>
+
+                                   {% for sta in name %}
+
+                                    <div> Пункт наблюдения: {{ sta.description }}</div>
+
+                                   {% endfor %}
+                                </div>
+
+                                <div class="col-xs-3 text-left">
+                                    <div class="input"></div>
+
+
+                                    <div> в разрезе суток</div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <a href="#day">
+                            <div class="panel-footer">
+                                <ul>
+
+                                 {% if tableav  %}
+                                     {% render_table table %}
+                                 {% endif %}
+
+                                </ul>
+
+                                <span class="pull-left">  </span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                         </div>
+
+                        <div class="tab-pane active" id="hour">
+
+                        <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <i class="fa fa-database fa-2x"></i>
+
+                                </div>
+                                <div class="col-xs-3">
+
+                                   <p> Обновлено: {{ ld.date_observation }}  </p>
+
+                                </div>
+
+                               <div class="col-xs-5 text-left">
+                                    <div class="input"></div>
+
+                                   {% for sta in name %}
+
+                                    <div> Пункт наблюдения: {{ sta.description }}</div>
+
+                                   {% endfor %}
+                                </div>
+
+
+                                 <div class="col-xs-3 text-left">
+                                   <div class="input"></div>
+
+                                    <div> в разрезе часа</div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <a href="#hour">
+                            <div class="panel-footer">
+                                <ul>
+
+                                 {% if tableav  %}
+                                     {% render_table table2 %}
+                                 {% endif %}
+
+                                </ul>
+
+                                <span class="pull-left">  </span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                 </div>
+
+</div>
+
+</div>
+
+
+{% endblock %}

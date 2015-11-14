@@ -1,0 +1,276 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Информационная система управления рисками наводнений - Бассейн р. Припять</title>
+
+    <!-- Bootstrap Core CSS -->
+
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/stylish-portfolio.css" %}" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href={%  static "font-awesome/css/font-awesome.min.css" %} type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+{% block content %}
+
+
+
+{% endblock %}
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top"  onclick = $("#menu-close").click(); >Меню пользователя</a>
+            </li>
+            <li>
+                <a href="#top" onclick = $("#menu-close").click(); >Главная страница</a>
+            </li>
+            <li>
+                <a href="#about" onclick = $("#menu-close").click(); >О системе</a>
+            </li>
+            <li>
+                <a href="#services" onclick = $("#menu-close").click(); >Сервисы</a>
+            </li>
+            <li>
+                <a href="#portfolio" onclick = $("#menu-close").click(); >Карты</a>
+            </li>
+            <li>
+                <a href="#contact" onclick = $("#menu-close").click(); >Контакты</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Информационная система </h1>
+             <h1> управления рисками наводнений  </h1>
+            <h2>Бассейн р.Припять </h2>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">Вход в систему</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-justify">
+                    <h4> Целью создания информационной системы является информационная поддержка принятия решений для
+                        снижения риска воздействия на человека и территории факторов техногенного и природного характера,
+                        минимизация ущерба от кризисных ситуаций для населения страны и окружающей среды, а также обеспечение
+                        населения доступной и визуальной информацией о состоянии водных объектов и возможной угрозы с их стороны
+                        при опасных гидрометеорологических явлениях.</h4>
+
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Разделы информационной системы</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-database fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Данные АГС</strong>
+                                </h4>
+                                <p>Представление оперативных данных автоматизированных гидрологических станций АГС в бассейне реки Припять</p>
+                                <a href="datadb/" class="btn btn-light"> Загрузить </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-calculator fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Прогнозирование</strong>
+                                </h4>
+                                <p>Результаты прогнозных расчетов при заданных(текущих) уровнях воды </p>
+                                <a href="prognoz/" class="btn btn-light">Загрузить</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-map-o fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Карты</strong>
+                                </h4>
+                                <p>Картирование территории бассейна р.Припять по угрозам риска возникнования наводнений </p>
+                                <a href="maps/" class="btn btn-light">Загрузить</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-map fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Инфраструктура</strong>
+                                </h4>
+                                <p>Динамическое представление тематических картографических слоев для бассейна р.Ясельда</p>
+                                <a href="#" class="btn btn-light">Загрузить</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Картографические материалы</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="{% static "img/13.jpg" %}">
+                                    <img class="img-portfolio img-responsive" src="{% static "img/13.jpg" %}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                 <a href="{% static "img/14.jpg" %}">
+                                    <img class="img-portfolio img-responsive" src="{% static "img/14.jpg" %}">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                 <a href="{% static "img/15.jpg" %}">
+                                    <img class="img-portfolio img-responsive" src="{% static "img/15.jpg" %}">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                 <a href="{% static "img/16.jpg" %}">
+                                    <img class="img-portfolio img-responsive" src="{% static "img/16.jpg" %}">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="/maps" class="btn btn-dark"> Больше карт</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Call to Action -->
+
+
+    <!-- Map -->
+
+
+    <!-- Footer -->
+
+
+    <!-- jQuery -->
+
+    <script src="{% static "js/jquery.js"%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+     <script src="{% static "js/bootstrap.min.js"%}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+</body>
+
+
+
+</html>

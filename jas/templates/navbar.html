@@ -1,0 +1,113 @@
+<div class="page-header">
+
+ <h2>Информационная система для бассейна реки Припять</h2>
+
+</div>
+
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     </div>
+
+  <style>
+  mark{
+      background-color: deepskyblue;
+      color: deepskyblue;
+        }
+ </style>
+
+   <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Главная</a></li>
+        <li><a href="/products/all">Каталог</a></li>
+        <li><a href="/cart/history">Заказы</a></li>
+        <li><a href=/management/>Управление</a></li>
+      </ul>
+      <!--<li><p class="navbar-text">Already have an account?</p></li>-->
+
+
+
+        <div class="btn-group ">
+  <button type="" class="btn btn-primary aligned dropdown-toggle    btn bottom-right"    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Для пользователя <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+
+               <li><a  href="/accounts/register">Регистрация</a></li>
+              {% if user.is_authenticated %}
+               <li><a  href="/accounts/edit">Редактировать</a></li>
+              <li><a  href="/accounts/logout">Выход({{ user.username }})</a></li>
+              {% else %}
+              <li><a  href="/accounts/login">Вход</a></li>
+              {% endif %}
+  </ul>
+</div>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% comment %}<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Вход</b> <span class="caret"></span></a>
+                <ul id="login-dp" class="dropdown-menu">
+                    <li>
+                         <div class="row">
+                                <div class="col-md-12">
+                                    Войти через
+                                    <div class="social-buttons">
+                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                    </div>
+                                    или
+                                     <form class="form" role="form" method="post" action="/accounts/login/?next={{ request.path }}" accept-charset="UTF-8" id="login-nav">
+                                    {% csrf_token %}
+                                            <div class="form-group">
+                                                 <label class="sr-only" for="exampleInputEmail2">Email</label>
+                                                 <input type="username" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Пароль" required>
+                                                 <div class="help-block text-right"><a href="">Забыли пароль ?</a></div>
+                                            </div>
+                                            <div class="form-group">
+                                                 <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                 <label>
+                                                 <input type="checkbox"> keep me logged-in
+                                                 </label>
+                                            </div>
+                                     </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    Впервые ? <a href="/accounts/register"><b>Регистрация</b></a>
+                                </div>
+                         </div>
+                    </li>
+                </ul>
+            </li>{% endcomment %}
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

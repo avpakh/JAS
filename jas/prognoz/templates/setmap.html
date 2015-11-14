@@ -1,0 +1,243 @@
+{% extends "index_pr.html" %}
+
+{% block content %}
+
+
+  <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
+
+{% load leaflet_tags %}
+{% load geojson_tags %}
+
+
+  {% leaflet_js %}
+  {% leaflet_css %}
+
+ <style>
+
+    #map {
+			width: 1000px;
+			height: 650px;
+		}
+
+
+    .leaflet-container {  /* all maps */
+        width:  1000px;
+        height: 650px;
+    }
+
+
+    .leaflet-popup-close-button {
+    display: none;
+        }
+    .leaflet-popup-content-wrapper {
+    pointer-events: none;
+   }
+
+
+   .info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 1px;
+}
+   .info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+
+</style>
+
+
+   <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="page-header">Населенные пункты в бассейне реки Ясельда</h4>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+
+  <script type="text/javascript">
+  var collection = {{ set_spot|geojsonfeature:"popupContent"|safe}};
+
+        var geojson;
+
+        function getColor(d) {
+            return d == 1 ? '#058DC7' :
+                   d == 2  ? 'greenyellow':
+                   d == 3  ? 'yellow':
+                   d == 4  ? '#ED561B':
+
+
+                         '#FFEDA0';
+}
+
+
+        function style(feature, fillColor) {
+    return {
+        fillColor : fillColor,
+        weight: 1,
+		opacity: 1,
+		color: 'white',
+		dashArray: '1',
+		fillOpacity: 0.5
+
+    }
+}
+
+
+         function map_init(map) {
+
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ', {
+			maxZoom: 25,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	 	  	id: 'mapbox.light'
+	     	}).addTo(map);
+
+               geojson = L.geoJson(collection, {
+                 style: function (f) {
+                         return style(f, getColor(f.properties.popupContent[0]));
+                        } ,
+                 onEachFeature: onEachFeature
+             }).addTo(map);
+
+
+
+              info.addTo(map);
+
+             legend.addTo(map);
+
+         }
+
+  // control that shows state info on hover
+		var info = L.control();
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+
+		info.update = function (props) {
+			this._div.innerHTML = '<h4> Риск наводнения в населенных пунктах </h4>' +  (props ?
+				'<b>' + props.popupContent[1] + '</b><br />' + props.popupContent[2] + ' '
+				: '');
+		};
+
+
+
+
+
+        var MyControl = L.Control.extend({
+         options: {   position: 'topleft'
+        },
+
+        onAdd: function (map) {
+        // create the control container with a particular class name
+        var container = L.DomUtil.create('div', 'my-custom-control');
+
+        // ... initialize other DOM elements, add listeners, etc.
+
+        return container;
+         }
+        });
+
+        map.addControl(new MyControl());
+
+
+		// get color depending alarm level
+
+
+
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 3,
+				color: 'white',
+				dashArray: '',
+				fillOpacity: 0.6
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+
+		}
+
+		var geojson;
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+
+		var legend = L.control({position: 'topleft'});
+
+        legend.onAdd = function (map) {
+
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [50, 100, 150, 200, 250, 300],
+                labels = ['<strong> THE TITLE </strong>'],
+                from, to;
+
+                for (var i = 0; i < grades.length; i++) {
+                from = grades [i];
+                to = grades[i+1]-1;
+
+                labels.push(
+                    '<i style="background:' + 'red' + '"></i> ' +
+                    from + (to ? '&ndash;' + to : '+'));
+                 }
+                 div.innerHTML = labels.join('<br>');
+                return div;
+
+
+        };
+
+
+
+
+</script>
+
+
+    {% leaflet_map "spots" callback="window.map_init" %}
+
+{% endblock %}
+
+
+

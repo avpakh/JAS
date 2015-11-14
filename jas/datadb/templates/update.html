@@ -1,0 +1,55 @@
+{% extends "index_db.html" %}
+
+{% block content %}
+
+   {% load render_table from django_tables2 %}
+
+  <div class="row">
+                <div class="col-lg-10">
+                    <h4 class="page-header">Табличное представление информации</h4>
+                </div>
+                <div class="col-lg-1 text-center">
+                  <a href="update.html"> Обновить <i class="fa fa-refresh fa-3x fa-spin"></i></a>
+
+                <!-- /.col-lg-12 -->
+  </div>
+   <div class="col-lg-12 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <i class="fa fa-database fa-2x"></i>
+
+                                </div>
+                                <div class="col-xs-3">
+                                    <p> Данные на: </p>
+
+                                  </div>
+
+                               <div class="col-xs-5 text-left">
+                                    <div class="huge"></div>
+                                    <div> Пункт наблюдения: </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <a href="#">
+                            <div class="panel-footer">
+                                <ul>
+                                 <body>
+                                     {% render_table table %}
+                                </body>
+                                </ul>
+
+                                <span class="pull-left">  </span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+{% endblock %}
