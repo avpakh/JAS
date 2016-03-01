@@ -48,7 +48,7 @@
     color: #777;
 }
 
-.legend {
+.legend  {
     line-height: 18px;
     color: #555;
 }
@@ -82,13 +82,18 @@
                    d == 2  ? 'greenyellow':
                    d == 3  ? 'yellow':
                    d == 4  ? '#ED561B':
-
-
                          '#FFEDA0';
 }
 
+      function getRisk(d) {
+            return d == 1 ? 'Нет угрозы затопления' :
+                   d == 2  ? 'Угроза затопления территории н.п. до 0.4 м. Низкий риск':
+                   d == 3  ? 'Угроза затопления территории н.п. от 0.4 м до 1 м. Повышенный риск':
+                   d == 4  ? 'Угроза затопления территории н.п. свыше 1 м. Критический риск':
+                         'нет оценки';
+}
 
-        function style(feature, fillColor) {
+    function style(feature, fillColor) {
     return {
         fillColor : fillColor,
         weight: 1,
@@ -99,8 +104,6 @@
 
     }
 }
-
-
          function map_init(map) {
 
 
@@ -119,9 +122,7 @@
                  onEachFeature: onEachFeature
              }).addTo(map);
 
-
-
-              info.addTo(map);
+             info.addTo(map);
 
              legend.addTo(map);
 
@@ -142,6 +143,28 @@
 				: '');
 		};
 
+        var legend = L.control({position: 'bottomright'});
+
+        legend.onAdd = function (map) {
+
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0,1, 2, 3, 4],
+                labels = ['Критерии риска'],
+                from, to;
+
+                for (var i = 0; i < grades.length; i++) {
+                from = grades [i];
+                to = grades[i];
+
+                labels.push(
+                    '<i style="background:' + getColor(i) + '"></i> ' +
+                    getRisk(i));
+                 }
+                 div.innerHTML = labels.join('<br>');
+                return div;
+
+
+        };
 
 
 
@@ -206,28 +229,7 @@
 		}
 
 
-		var legend = L.control({position: 'topleft'});
 
-        legend.onAdd = function (map) {
-
-            var div = L.DomUtil.create('div', 'info legend'),
-                grades = [50, 100, 150, 200, 250, 300],
-                labels = ['<strong> THE TITLE </strong>'],
-                from, to;
-
-                for (var i = 0; i < grades.length; i++) {
-                from = grades [i];
-                to = grades[i+1]-1;
-
-                labels.push(
-                    '<i style="background:' + 'red' + '"></i> ' +
-                    from + (to ? '&ndash;' + to : '+'));
-                 }
-                 div.innerHTML = labels.join('<br>');
-                return div;
-
-
-        };
 
 
 

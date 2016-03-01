@@ -9,18 +9,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Aliaksandr Pakhomau">
 
-    <title>Информационная система - бассейн р. Припять</title>
+    <title>Информационная система управления рисками наводнений - бассейн р. Припять</title>
 
     <!-- Bootstrap Core CSS -->
 
 
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
+    <title>Bootstrap 3 Datepicker</title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="./css/prettify-1.0.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+		<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+			<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
     <link href="{% static "css/sb-admin-2.css" %}" rel="stylesheet">
 
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <title></title>
+    <link href="{% static "css/bootstrap-theme.min.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "css/bootstrap-datepicker.min.css" %}" rel="stylesheet" media="screen">
+
+
     <link rel="stylesheet" href="{% static "themes/paleblue/css/screen.css" %}" >
+
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href={%  static "font-awesome/css/font-awesome.min.css" %} type="text/css">
@@ -47,7 +74,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Информационная система - Бассейн р.Припять - Данные АГС </a>
+                <a class="navbar-brand" href="#">Информационная система управление рисками наводнений - Бассейн р.Припять - Данные автоматизированных гидрологических станций (АГС) </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,7 +88,7 @@
                     <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="/datadb/map"><i class="fa fa-map-o fa-fw"></i>Карта-схема</a>
+                            <a href="/datadb/map"><i class="fa fa-map-o fa-fw"></i>Схема</a>
                         </li>
 
                          <li>
@@ -70,6 +97,10 @@
 
                          <li>
                             <a href="/datadb/graphs"><i class="fa fa-line-chart fa-fw"></i> Графики </a>
+                        </li>
+
+                        <li>
+                            <a href="/datadb/request"><i class="fa fa-archive fa-fw"></i> Запросы к БД </a>
                         </li>
 
                          <li>
@@ -115,10 +146,11 @@
     <!-- jQuery -->
 
     <script src="{% static "js/jquery.js"%}"></script>
+    <script type="text/javascript" src="{%  static "jquery/jquery-1.8.3.min.js" %}" charset="UTF-8"></script>
 
     <!-- Bootstrap Core JavaScript -->
 
-     <script src="{% static "js/bootstrap.min.js"%}"></script>
+     <script src="{% static "js/bootstrap.min.js" %}"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>
@@ -151,6 +183,105 @@
         });
     });
     </script>
+
+
+  <!-- Le javascript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <script src="{%  static "js/bootstrap.js" %}"> </script>
+  <script src="{%  static "js/moment.js" %}"></script>
+  <script src="{%  static "js/transition.js" %}"></script>
+  <script src="{%  static "js/collapse.js" %}"></script>
+
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript">
+
+
+
+  $(function() {
+
+    $( "#from" ).datepicker({
+      defaultDate: "-3w",
+      maxDate:"0",
+      changeMonth: true,
+      language: 'ru',
+      numberOfMonths: 2,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      },
+       onSelect: function(){
+            var day1 = $("#datepicker").datepicker('getDate').getDate();
+            var month1 = $("#datepicker").datepicker('getDate').getMonth() + 1;
+            var year1 = $("#datepicker").datepicker('getDate').getFullYear();
+            var fullDate = year1 + "-" + month1 + "-" + day1;
+
+        }
+
+
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "-1w",
+      maxDate:"0",
+      changeMonth: true,
+      language: 'ru',
+      numberOfMonths: 2,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+
+   /* Russian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+/* Written by Andrew Stromnov (stromnov@gmail.com). */
+( function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+
+		// AMD. Register as an anonymous module.
+		define( [ "../widgets/datepicker" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery.datepicker );
+	}
+}( function( datepicker ) {
+
+datepicker.regional.ru = {
+	closeText: "Закрыть",
+	prevText: "&#x3C;Пред",
+	nextText: "След&#x3E;",
+	currentText: "Сегодня",
+	monthNames: [ "Январь","Февраль","Март","Апрель","Май","Июнь",
+	"Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ],
+	monthNamesShort: [ "Янв","Фев","Мар","Апр","Май","Июн",
+	"Июл","Авг","Сен","Окт","Ноя","Дек" ],
+	dayNames: [ "воскресенье","понедельник","вторник","среда","четверг","пятница","суббота" ],
+	dayNamesShort: [ "вск","пнд","втр","срд","чтв","птн","сбт" ],
+	dayNamesMin: [ "Вс","Пн","Вт","Ср","Чт","Пт","Сб" ],
+	weekHeader: "Нед",
+	dateFormat: "yy-mm-dd",
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: "" };
+datepicker.setDefaults( datepicker.regional.ru );
+
+return datepicker.regional.ru;
+
+} ) );
+
+  });
+  </script>
+
+
+
+
+
+
+
+
+</div>
 
 </body>
 

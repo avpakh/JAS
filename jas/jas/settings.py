@@ -53,12 +53,15 @@ INSTALLED_APPS = (
     'chartit',
     'sorl.thumbnail',
     'rest_framework',
+    'datetimewidget',
+
      )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -140,7 +143,10 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
+
+
+
 
 TEMPLATES_DIR=(
     join(PROJECT_ROOT,'templates'),
@@ -171,12 +177,9 @@ LEAFLET_CONFIG = {
  'MIN_ZOOM': 3,
  'MAX_ZOOM': 25,
  'ATTRIBUTION_PREFIX': 'Powered by django-leaflet',
- 'TILES': [('OSM maps', 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', {'attribution': '&copy; Big eye', 'maxZoom': 25}),
-           ('Satellite', 'http://otile2.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {'attribution': '&copy; Contributors'}),
-           ('Landscape', 'http://a.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {'attribution': '&copy; Contributors'}),
-           ('OS' , 'http://{s}.tiles.mapbox.com/v3/aj.um7z9lus/{z}/{x}/{y}.png', {}),
-           ('Sputnik','http://{s}.tiles.maps.sputnik.ru/tiles/kmt2/{z}/{x}/{y}.png',{})
-          ]
+ 'TILES': [ ('Sputnik','http://{s}.tiles.maps.sputnik.ru/tiles/kmt2/{z}/{x}/{y}.png',{}),
+            ('Satellite', 'http://otile2.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {'attribution': '&copy; Contributors'})
+           ]
 }
 
 

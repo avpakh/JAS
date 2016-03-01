@@ -76,8 +76,6 @@ def settlements_filter(request):
 		return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-
-
 def read_file(file_for_reading):
 
     lists_maps=[]
@@ -142,7 +140,7 @@ def write_level_map():
 def getdata_table1(id_station):
     minlevel=0
     try:
-        cnxn = pyodbc.connect("DSN=MSSQL-PYTHON;UID=gmcreader;PWD=123")
+        cnxn = pyodbc.connect("DSN=MSSQL-PYTHON;UID=gmcreader;PWD=123",timeout=1)
         cnxn.autocommit = True
         cursor = cnxn.cursor()
         cursor.execute("""
@@ -165,8 +163,10 @@ def getdata_table1(id_station):
                """,id_station,minlevel)
         rows = cursor.fetchall()
 
-
         return rows
+
+
+
     except:
         return None
 
@@ -213,6 +213,7 @@ def get_water_level(river_name):
     print rivercode
 
     res1=getdata_table1(rivercode)
+
     if res1 !=None:
         res=res1
         for results in res:
@@ -414,7 +415,7 @@ def put_data_db(rivername,baselevel):
                     mapid = (maps_obj.id_maps)
                     break
 
-    print mapid
+
 
     for rivobj in all_riverobj:
         if rivobj.name == rivername:
@@ -422,7 +423,7 @@ def put_data_db(rivername,baselevel):
             filename=rivobj.riverfile
             break
 
-    print idriver,filename
+
 
     path=settings.PROJECT_ROOT
 
@@ -612,6 +613,7 @@ def get_level_map(map_id,distance):
 
      dist_array=[]
      level_array=[]
+     num_level_index=0
 
 
      for obj in prognoz_obj:
@@ -688,7 +690,7 @@ def post_form_upload(request):
         map_id = put_data_db(selected_river,base_level)
 
 
-        print 'map_id',map_id
+        #print 'map_id',map_id
 
 
        # Create Graphs for request

@@ -9,12 +9,38 @@
                 <div class="col-lg-10">
                     <h4 class="page-header"> Графическое представление автоматизированных наблюдений за уровнем воды</h4>
                     <h5 class="panel-title"> АГС {{ ags }}  </h5>
+                    <p>   </p>
                 </div>
                 <div class="col-lg-1 text-center">
 
 
                 <!-- /.col-lg-12 -->
-  </div>
+                </div>
+
+          <div class="col-lg-12">
+
+   <a role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+           Выбор станции АГС из списка <span class="caret"></span>
+    </a>
+
+
+
+    <ul class="dropdown-menu">
+
+      {% for station in stations %}
+      <li role="presentation"> <a href="{% url 'graphs' station.id_station  %}"> {{ station.description }}  </a> </li>
+      <li class="divider"></li>
+      {% endfor %}
+
+  </ul>
+
+
+
+    </ul>
+  </a>
+     </div>
+
 
 
     <div class="col-lg-12">
@@ -27,15 +53,28 @@
 
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
-    <script src="/highcharts.js" type="text/javascript"></script>
+    <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/js/highcharts.js" type="text/javascript"></script>
+
+
+
     {% load chartit %}
 
     {{ dtchart|load_charts:"container" }}
 
+
+
+      {{ dtchart|load_charts:"chart-A,chart-B" }}
+
+     <div id='chart-A' class="-area-chart" >  </div>
+
+     <div id='chart-B' class="-area-chart" >  </div>
+
+
+
+
 <body>
-    <div id='container'> Chart will be rendered here </div>
+
 </body>
 
 {% endblock %}

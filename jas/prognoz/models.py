@@ -26,10 +26,9 @@ class Settlements(gismodels.Model):
 
 
     def __unicode__(self):
-		return self.name,self.description
+		return u" %s %s " % (self.name,self.description)
 
-    def __str__(self):
-		return self.name,self.description
+
 
 
 class Rivers(models.Model):

@@ -1,0 +1,56 @@
+{% extends "index_db.html" %}
+
+{% block content %}
+
+   {% load render_table from django_tables2 %}
+
+  <div class="row">
+                <div class="col-lg-10">
+                    <h4 class="page-header">Табличное представление автоматизированных наблюдений за уровнем воды</h4>
+                </div>
+                <div class="col-lg-1 text-center">
+                {% if tableav  %}
+
+                 <li><a href="/datadb/update"> Обновить <i class="fa fa-refresh fa-3x "></i> </a> </li>
+
+                {% endif %}
+
+                <!-- /.col-lg-12 -->
+  </div>
+
+
+    <div class="col-lg-12">
+
+    <div class="row">
+     <div class="col-lg-2 text-center">
+
+   <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+    Выбор станции АГС из списка  <span class="caret"></span>
+  </button>
+
+  </div>
+
+
+
+  <ul class="nav nav-pills  nav-stacked">
+
+   {% for station in stations %}
+
+      <li><a href="{% url 'detail' station.id_station  %}"> {{ station.description }}  </a> </li>
+
+      <li class="divider"></li>
+      {% endfor %}
+
+  </ul>
+
+  </div>
+   </div>
+
+
+
+  </div>
+
+
+
+{% endblock %}

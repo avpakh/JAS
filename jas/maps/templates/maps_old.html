@@ -1,0 +1,96 @@
+{% extends "index_maps.html" %}
+
+{% block content %}
+
+{% load thumbnail %}
+
+ <div class="row">
+                <div class="col-lg-10">
+                    <h4 class="page-header">Выбор карт для отображения</h4>
+                </div>
+                <div class="col-lg-1 text-center">
+
+
+                <!-- /.col-lg-12 -->
+  </div>
+
+
+ <div class="col-lg-12">
+
+   <a role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+           для водного объекта: <span class="caret"></span>
+    </a>
+
+
+   <div class="row">
+
+       <div class="col-lg-12">
+
+
+     <form action="." method="post"> {% csrf_token %}
+
+      <select size=4 name="river_list" onchange="this.form.submit(); ">
+    {% for river in rivers %}
+        {% ifequal river.river_basin selvalue %}
+            <option value="{{ river.river_basin }}" selected="selected"> Река {{river.river_basin}}</option>
+        {% else %}
+            <option value="{{river.river_basin }}">Река  {{river.river_basin}}</option>
+        {% endifequal %}
+    {% endfor %}
+
+      </select>
+
+
+
+
+
+     </form>
+
+ </div>
+
+       <div class="col-lg-10">
+
+            <div class="panel panel-primary ">
+                        <div class="panel-heading">
+
+
+
+
+                         </div>
+
+  </div>
+
+         <div id="maps">
+
+               {% for map in mapsflood  %}
+
+                 <div class="col-lg-10 ">
+                        <div class="thumbnail">
+
+                             {% thumbnail map.mapflood_image "1024x800"  as im %}
+                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ map.description}}" >
+                             {% endthumbnail %}
+                                <div class="caption">
+                                <h5>  {{ map.description   }}   </h5>
+
+                         </div>
+
+                     </div>
+
+</div>
+               {% endfor %}
+
+
+
+   </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

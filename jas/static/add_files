@@ -1,0 +1,45 @@
+<script type="text/javascript">
+    $("#from").datepicker({
+        language:  'ru',
+        pickerPosition: "bottom-left",
+        autoclose: true,
+        todayBtn: false
+        });
+
+     $("#to").datepicker({
+        language:  'ru',
+        useCurrent : true,
+        pickerPosition: "bottom-left",
+        autoclose: true,
+        todayBtn: false,
+
+            });
+
+</script>
+
+
+<script type="text/javascript" src="{%  static "js/bootstrap-datepicker.min.js" %}" charset="UTF-8"></script>
+
+<script type="text/javascript" src="{%  static "js/bootstrap-datetimepicker.min.js.js" %}" charset="UTF-8"></script>
+
+<script type="text/javascript" src="{%  static "js/locales/bootstrap-datepicker.ru.js" %}" charset="UTF-8"></script>
+
+ <script type="text/javascript" src="{%  static "js/locales/bootstrap-datetimepicker.ru.js" %}" charset="UTF-8"></script>
+
+
+
+ <div class="col-lg-3">
+
+     <div class='input-append date' id='from'>
+      <input size="10" type="text" value="" readonly>
+       <span class="add-on"><i class="fa fa-calendar"></i></span>
+    </div>
+
+    </div>
+
+    <div class="col-lg-3">
+    <div class='input-append date' id='to'>
+      <input size="10" type="text" value="" readonly>
+       <span class="add-on"><i class="fa fa-calendar"></i></span>
+    </div>
+    </div>

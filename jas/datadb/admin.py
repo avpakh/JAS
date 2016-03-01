@@ -7,6 +7,8 @@ from .models import AgsStation
 from .models import Station
 from sorl.thumbnail.admin import AdminImageMixin
 from .models import DataAnalys
+from .models import GraphData
+from .models import RequestAv
 
 
 from leaflet.admin import LeafletGeoAdmin
@@ -21,12 +23,23 @@ class AvAdmin(admin.ModelAdmin):
 		model = Av
 	pass
 
+class RequestAvAdmin(admin.ModelAdmin):
+
+	class Meta:
+		model = RequestAv
+	pass
+
 class StationAdmin(admin.ModelAdmin):
 
 	class Meta:
 		model = Station
 	pass
 
+class GraphDataAdmin(admin.ModelAdmin):
+
+	class Meta:
+		model = GraphData
+	pass
 
 class DataAnalysAdmin(admin.ModelAdmin):
 
@@ -42,7 +55,9 @@ class DataHourAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Av, AvAdmin)
+admin.site.register(RequestAv, AvAdmin)
 admin.site.register(AgsStation, LeafletGeoAdmin)
 admin.site.register(Station, StationAdmin)
 admin.site.register(DataAnalys,DataAnalysAdmin)
 admin.site.register(Hour,DataHourAdmin)
+admin.site.register(GraphData,GraphDataAdmin)

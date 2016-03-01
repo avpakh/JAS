@@ -1,0 +1,131 @@
+{% extends "index_db.html" %}
+
+{%  load static %}
+
+{% block content %}
+
+   {% load render_table from django_tables2 %}
+
+
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+                <div class="col-lg-10">
+                    <h4 class="page-header">Выборка данных измерений АГС за уровнем воды</h4>
+                </div>
+                <div class="col-lg-1 text-center">
+
+
+                <!-- /.col-lg-12 -->
+              </div>
+
+
+    <div class="col-lg-12">
+ <form role="form"  action="." method="post"> {% csrf_token %} {{ form }}
+      <div class="form-group col-lg-3">
+
+                  <h4>Выбор станции АГС :</h4>
+
+                     <p></p>
+
+
+
+                      <select size="3" multiple class="form-control col-lg-2"  name="river_list" onchange="this.form.submit();" >
+                        {% for station in stations %}
+
+                          {% ifequal station.description selvalue %}
+
+                              <option selected="selected"  value="{{ station.description }}"  > {{station.description}} </option>
+                           {% else %}
+                               <option value="{{ station.description }}"  > {{station.description}} </option>
+
+                            {% endifequal %}
+                        {% endfor %}
+
+                       </select>
+
+           </div>
+
+
+   <div class="row">
+   </div>
+
+
+
+<div class="form-group col-lg-5">
+       {% ifequal selvalue '' %}
+            <div class="alert alert-warning" role="alert"> Выберите станцию АГС для выборки данных</div>
+          {% endifequal %}
+</div>
+
+ <div class="row">
+   </div>
+
+   <div  class="form-group col-lg-3" >
+      <label for="from"> Начальная дата (гггг - мм - дд) </label>
+      <input  name="from_" size="10" type="text" id="from" value="{{ fromv }}"  readonly>
+       <span class="fa add-on"><i class="fa fa-calendar"></i></span>
+    </div>
+
+ <div class="form-group col-lg-5">
+     {% ifequal fromv1 '' %}
+            <div class="alert alert-warning" role="alert"> Введите начальную дату</div>
+          {% endifequal %}
+ </div>
+
+  <div class="row">
+  </div>
+
+    <div class="form-group col-lg-3" >
+      <label for="to"> Конечная дата (гггг - мм - дд) </label>
+      <input  name="to_" size="10" type="text" id="to" value="{{ tvalue }}" readonly>
+       <span class="fa add-on"><i class="fa fa-calendar"></i></span>
+    </div>
+
+  <div class="form-group col-lg-5">
+     {% ifequal tov1 '' %}
+            <div class="alert alert-warning" role="alert"> Введите конечную дату</div>
+          {% endifequal %}
+ </div>
+
+ <div class="row">
+  </div>
+
+   <div class="form-group col-lg-2" >
+    <button type="submit" value="Submit" class="btn btn-default btn-md"> Принять </button>
+   </div>
+   </form>
+
+
+
+</div>
+
+</div>
+
+
+   {% if showgr != 'no' %}
+
+  <div class="row">
+  </div>
+
+       <div class="col-lg-12">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+    <script src="/highcharts.js" type="text/javascript"></script>
+
+  <script src="{%  static "js/exporting.js" %}"></script>
+   <script src="{%  static "js/export-csv.js" %}"></script>
+
+    {% load chartit %}
+
+    {{ dtchart|load_charts:"chart-A" }}
+
+     <div id='chart-A' class="-area-chart" >  </div>
+
+    </div>
+
+   {% endif %}
+
+
+
+
+{% endblock %}
