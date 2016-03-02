@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.views.generic import ListView
 from datadb.models import DataModel
 from datadb.models import Av
-from datadb.models import RequestAv
+from datadb.models import RequestAv,RequestData
 from datadb.models import Hour,GraphData,GraphDataBC
 from datadb.models import AgsStation
 from table import HourTable
@@ -28,13 +28,9 @@ from django.shortcuts import render, render_to_response
 
 def getdata_request(id_station,fromv,tov):
 
-    print type(fromv),id_station,fromv,tov
-
     dt1 = fromv
 
     dt2 = tov
-
-    print type(dt1)
 
     minlevel=0
     try:
@@ -45,7 +41,7 @@ def getdata_request(id_station,fromv,tov):
                 select min(data) from dbo._data
                 where dt>=? and dt<=? and mid=1 and id=?
                 group by cast(dt as date)
-                order by cast(dt as date) desc
+                order by cast(dt as date) asc
                """,dt1,dt2,id_station)
         minlev=cursor.fetchall()
         for level in minlev:
@@ -55,12 +51,16 @@ def getdata_request(id_station,fromv,tov):
         cursor = cnxn.cursor()
         cursor.execute("""
                 select cast (dt as date),avg(data),min(data),max(data) from dbo._data
-                where dt>=? and dt<=? and mid=1 and id=? and ((data < 2*?) and (data > ?*0.3))
+                where dt>=? and dt<=? and mid=1 and id=? and ((data < 1.5*?) and (data > ?*0.3))
                 group by cast(dt as date)
                 order by cast(dt as date) desc
                """,dt1,dt2,id_station,minlevel,minlevel)
         rows = cursor.fetchall()
 
+        ags_station = get_object_or_404(AgsStation,station_id=id_station)
+
+        level_zero= ags_station.value_zero
+        level_brovka = ags_station.value_brovka
 
         # Create a tables from databases
         requestdat = RequestAv.objects.all()
@@ -69,15 +69,72 @@ def getdata_request(id_station,fromv,tov):
 
 
         for rowdata in rows:
-            data10=RequestAv()
-            data10.value_min=rowdata[2]
-            data10.value_avg=rowdata[1]
-            data10.value_max=rowdata[3]
-            data10.date_observation=rowdata[0]
-            data10.id_station=id_station
-            data10.save()
+            if rowdata[3]/rowdata[2]<=1.5:
+                datatableR=RequestAv()
+                datatableR.value_min=rowdata[2]
+                datatableR.value_avg=rowdata[1]
+                datatableR.value_max=rowdata[3]
+                datatableR.date_observation=rowdata[0]
+                datatableR.id_station=id_station
+                datatableR.value_minBC=rowdata[2]/100+level_zero
+                datatableR.value_maxBC=rowdata[3]/100+level_zero
+                datatableR.value_avgBC=rowdata[1]/100+level_zero
 
-        return data10
+                temp_value=rowdata[1]/100 + level_zero
+
+                print temp_value,level_brovka
+
+                if temp_value < level_brovka:
+                    datatableR.value_avgBC=temp_value
+                    datatableR.value_avgBC1=0
+                    datatableR.value_avgBC2=0
+                    datatableR.value_avgBC3=0
+                    datatableR.value_avgBC4=0
+                    datatableR.value_avgBC50=0
+                    datatableR.value_avgBC60=temp_value
+
+                if temp_value>=level_brovka and temp_value<(level_brovka+0.5):
+                    datatableR.value_avgBC1=temp_value
+                    datatableR.value_avgBC=level_brovka
+                    datatableR.value_avgBC2=0
+                    datatableR.value_avgBC3=0
+                    datatableR.value_avgBC4=0
+                    datatableR.value_avgBC50=temp_value
+                    datatableR.value_avgBC60=level_brovka
+
+                if  temp_value >= level_brovka+0.5 and temp_value<(level_brovka+0.8):
+                    datatableR.value_avgBC2=temp_value
+                    datatableR.value_avgBC=level_brovka
+                    datatableR.value_avgBC1=level_brovka+0.5
+                    datatableR.value_avgBC3=0
+                    datatableR.value_avgBC4=0
+                    datatableR.value_avgBC50=level_brovka+0.5
+                    datatableR.value_avgBC60=level_brovka
+
+
+                if  temp_value>= level_brovka+0.8 and temp_value<level_brovka + 2:
+                    datatableR.value_avgBC3=temp_value
+                    datatableR.value_avgBC=level_brovka
+                    datatableR.value_avgBC2=level_brovka+0.8
+                    datatableR.value_avgBC1=level_brovka+0.5
+                    datatableR.value_avgBC4=0
+                    datatableR.value_avgBC50=level_brovka+0.5
+                    datatableR.value_avgBC60=level_brovka
+
+                if  temp_value>=(level_brovka+2):
+                    datatableR.value_avgBC4=temp_value
+                    datatableR.value_avgBC=level_brovka
+                    datatableR.value_avgBC2=level_brovka+0.8
+                    datatableR.value_avgBC1=level_brovka+0.5
+                    datatableR.value_avgBC3=level_brovka+2
+                    datatableR.value_avgBC50=level_brovka+0.5
+                    datatableR.value_avgBC60=level_brovka
+
+                datatableR.save()
+
+
+
+        return datatableR
 
     except:
         return None
@@ -148,6 +205,10 @@ def getdata_last(id_station):
         ags.value_bc=ags.value_zero+value_first*0.01
         ags.save()
 
+
+
+
+
         return rows
     except:
         return None
@@ -206,6 +267,8 @@ def request_page(request):
         max_level = RequestAv.objects.all().filter(id_station=index_id).aggregate(Max('value_max'))
         min_level = RequestAv.objects.all().filter(id_station=index_id).aggregate(Min('value_min'))
 
+        max_levelBC = RequestAv.objects.all().filter(id_station=index_id).aggregate(Max('value_maxBC'))
+        min_levelBC = RequestAv.objects.all().filter(id_station=index_id).aggregate(Min('value_minBC'))
 
 
         ds=\
@@ -326,11 +389,142 @@ def request_page(request):
 
         x_sortf_mapf_mts=(None, lambda i: datetime.fromtimestamp(i).strftime(" %Y-%m-%d"), False))
 
+        ds1=\
+            DataPool(
+            series=
+               [{
+                'options': {
+               'source':RequestAv.objects.all().order_by('date_observation')  },
+              'terms': [
+                ('date_observation', lambda d: time.mktime(d.timetuple())),
+                'value_avgBC2','value_avgBC3','value_avgBC4']},
+                { 'options': {
+               'source':RequestAv.objects.all().order_by('date_observation')  },
+              'terms': [
+                ('date_observation', lambda d: time.mktime(d.timetuple())),
+                'value_avgBC','value_avgBC1','value_avgBC50']},
+
+                ])
+
+        cht1 = Chart(
+                datasource=ds1,
+                series_options=
+              [
+
+
+                   {'options':{
+                   'type': 'areaspline',
+                   },
+                'terms':{
+                  'date_observation': [
+                  'value_avgBC','value_avgBC2','value_avgBC3','value_avgBC4']
+                  }},
+
+                     {'options':{
+                   'type': 'line',
+                   },
+                'terms':{
+                  'date_observation': [
+                  'value_avgBC50']
+                  }},
+
+                 ],
+                chart_options=
+               {'chart':
+                    {
+                    'zoomType': 'x',
+                     },
+
+                'title':
+                    {
+                    'text': 'Измеренный уровень воды в абсолютных отметках БС,м'  + ' || станция AГС: '+ selected_value.encode('utf-8')
+                    },
+
+                 'yAxis':
+                    {
+                    'title' : {'text': ' м '},
+                    'min': min_levelBC.values(),
+                    'max' :max_levelBC.values(),
+                    },
+                  'navigation': {
+                'buttonOptions': {
+                'height': 40,
+                'width': 48,
+                'symbolSize': 24,
+                'symbolX': 23,
+                'symbolY': 21,
+                'symbolStrokeWidth': 2
+            },
+                     },
+
+
+                'xAxis':
+                    {
+                    'title' : {'text': ' Дата '},
+                    'labels':
+                        {'step': 24, 'rotation': 0, 'align': 'bottom'},
+                    'minRange': 5
+                    },
+                'colors': ['#ff9a34','#ffff81','#349aff','#ff3434','#35ff34','#9aff34'],
+
+                'credits':
+                    {
+                    'enabled': True
+                    },
+                 'legend':
+                     {
+                      'reversed':'true'
+                     },
+                    'plotOptions': {
+                   'series':
+
+                    {
+                     'fillOpacity':1
+                    },
+                  'line': {
+                  'id':'1',
+                  'index':2,
+                  'legendIndex':1,
+                  'lineWidth': 10,
+                  'marker': {
+                    'lineWidth': 0,
+                    'radius': 0,
+                    'lineColor': '#666666'
+
+                     },
+
+                  },
+                 },
+                     'plotOptions': {
+                   'series':
+
+                    {
+                     'fillOpacity':1,
+
+                    },
+
+                  'areaspline': {
+                  'id':'0',
+                  'index':1,
+                  'legendIndex':2,
+                  'lineWidth': 1,
+                  'marker': {
+                    'lineWidth': 0.0,
+                    'radius': 0.0,
+                    'lineColor': '#666666'
+
+                     },
+
+                  },
+                 },
+
+                },
+                x_sortf_mapf_mts=(None, lambda i: datetime.fromtimestamp(i).strftime("%Y-%m-%d"), False))
 
 
 
 
-        return render(request,'request.html',{'dtchart':[cht],'stations':stations,'selvalue':selected_value,'showgr':showgr,'fromv':from_value,'tvalue':to_value,'fromv1':fromv1,'tov1':tov1})
+        return render(request,'request.html',{'dtchart':[cht,cht1],'stations':stations,'selvalue':selected_value,'showgr':showgr,'fromv':from_value,'tvalue':to_value,'fromv1':fromv1,'tov1':tov1})
 
     else:
 

@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88ce48d8-c3bc-4317-a681-230a285660f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/add_files" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/maps/templates/maps_old.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datadb/templates/table_basic.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/13.jpg" afterPath="$PROJECT_DIR$/static/img/13.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/14.jpg" afterPath="$PROJECT_DIR$/static/img/14.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/15.jpg" afterPath="$PROJECT_DIR$/static/img/15.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/16.jpg" afterPath="$PROJECT_DIR$/static/img/16.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/admin.py" afterPath="$PROJECT_DIR$/datadb/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/admin.py" afterPath="$PROJECT_DIR$/maps/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prognoz/admin.py" afterPath="$PROJECT_DIR$/prognoz/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/templates/graph_basic.html" afterPath="$PROJECT_DIR$/datadb/templates/graph_basic.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/templates/graphs.html" afterPath="$PROJECT_DIR$/datadb/templates/graphs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index_db.html" afterPath="$PROJECT_DIR$/templates/index_db.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/templates/map.html" afterPath="$PROJECT_DIR$/datadb/templates/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/templates/maps.html" afterPath="$PROJECT_DIR$/maps/templates/maps.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/models.py" afterPath="$PROJECT_DIR$/datadb/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/models.py" afterPath="$PROJECT_DIR$/maps/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prognoz/models.py" afterPath="$PROJECT_DIR$/prognoz/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prognoz/templates/setmap.html" afterPath="$PROJECT_DIR$/prognoz/templates/setmap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jas/settings.py" afterPath="$PROJECT_DIR$/jas/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/templates/table.html" afterPath="$PROJECT_DIR$/datadb/templates/table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/urls.py" afterPath="$PROJECT_DIR$/datadb/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/templates/request.html" afterPath="$PROJECT_DIR$/datadb/templates/request.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadb/views.py" afterPath="$PROJECT_DIR$/datadb/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/views.py" afterPath="$PROJECT_DIR$/maps/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prognoz/views.py" afterPath="$PROJECT_DIR$/prognoz/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jas.iws" />
@@ -63,98 +40,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index_db.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index_db.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.833333">
-              <caret line="194" column="56" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/datadb/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="260" column="28" selection-start-line="260" selection-start-column="28" selection-end-line="260" selection-end-column="28" />
+            <state vertical-scroll-proportion="-3.4526112">
+              <caret line="439" column="81" selection-start-line="439" selection-start-column="81" selection-end-line="439" selection-end-column="81" />
               <folding>
-                <marker date="1456842145589" expanded="true" signature="1125:1302" placeholder="select max(d..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="1510:1763" placeholder="select cast ..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="2616:2792" placeholder="select max(d..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="2991:3166" placeholder="select dt,da..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="3324:3575" placeholder="select cast ..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="18053:18231" placeholder="select min(d..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="18410:18656" placeholder="select cast ..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="18955:19132" placeholder="select min(d..dbo._data..." />
-                <marker date="1456842145589" expanded="true" signature="19311:19683" placeholder="select cast(..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="1072:1245" placeholder="select max(d..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="1072:1248" placeholder="select min(d..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="1456:1711" placeholder="select cast ..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="5383:5559" placeholder="select max(d..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="5758:5933" placeholder="select dt,da..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="6091:6342" placeholder="select cast ..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="24885:25063" placeholder="select min(d..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="25242:25488" placeholder="select cast ..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="25787:25964" placeholder="select min(d..dbo._data..." />
+                <marker date="1456930750588" expanded="true" signature="26143:26515" placeholder="select cast(..dbo._data..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maps/models.py">
+      <file leaf-file-name="graphs_1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datadb/templates/graphs_1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            <state vertical-scroll-proportion="-13.166667">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prognoz/templates/results.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2916665">
-              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datadb/templates/request.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.666666">
-              <caret line="117" column="22" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exporting.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/exporting.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.520193">
-              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="export-csv.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/export-csv.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="291" column="7" selection-start-line="291" selection-start-column="7" selection-end-line="291" selection-end-column="7" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="highcharts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/highcharts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -162,8 +74,18 @@
       <file leaf-file-name="graphs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datadb/templates/graphs.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.041667">
+              <caret line="71" column="0" selection-start-line="66" selection-start-column="5" selection-end-line="71" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datadb/add.py">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="52" selection-start-line="59" selection-start-column="0" selection-end-line="70" selection-end-column="52" />
+              <caret line="63" column="29" selection-start-line="2" selection-start-column="12" selection-end-line="63" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -173,7 +95,61 @@
         <entry file="file://$PROJECT_DIR$/datadb/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
+              <caret line="143" column="4" selection-start-line="143" selection-start-column="4" selection-end-line="143" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datadb/table.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datadb/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.5">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="e#30#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datadb/templates/request.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.291667">
+              <caret line="120" column="2" selection-start-line="120" selection-start-column="2" selection-end-line="120" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exporting.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/exporting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jas/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="76" column="69" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -195,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/css/sb-admin-2.css" />
         <option value="$PROJECT_DIR$/static/css/stylish-portfolio.css" />
         <option value="$PROJECT_DIR$/static/themes/paleblue/css/screen.css" />
         <option value="$PROJECT_DIR$/datadb/table.py" />
@@ -239,13 +214,14 @@
         <option value="$PROJECT_DIR$/prognoz/views.py" />
         <option value="$PROJECT_DIR$/maps/views.py" />
         <option value="$PROJECT_DIR$/templates/index_db.html" />
-        <option value="$PROJECT_DIR$/datadb/admin.py" />
         <option value="$PROJECT_DIR$/datadb/templates/graphs_1.html" />
+        <option value="$PROJECT_DIR$/static/js/export-csv.js" />
+        <option value="$PROJECT_DIR$/static/js/exporting.js" />
+        <option value="$PROJECT_DIR$/datadb/admin.py" />
+        <option value="$PROJECT_DIR$/datadb/add.py" />
+        <option value="$PROJECT_DIR$/datadb/templates/request.html" />
         <option value="$PROJECT_DIR$/datadb/models.py" />
         <option value="$PROJECT_DIR$/datadb/views.py" />
-        <option value="$PROJECT_DIR$/static/js/export-csv.js" />
-        <option value="$PROJECT_DIR$/datadb/templates/request.html" />
-        <option value="$PROJECT_DIR$/static/js/exporting.js" />
       </list>
     </option>
   </component>
@@ -258,9 +234,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="57" />
-    <option name="y" value="21" />
+    <option name="y" value="-4" />
     <option name="width" value="1309" />
-    <option name="height" value="747" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -285,10 +261,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Problems" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,7 +289,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="datadb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -331,39 +303,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prognoz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prognoz" />
+              <option name="myItemId" value="datadb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -373,6 +313,10 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -662,17 +606,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="21" width="1309" height="747" extended-state="6" />
-    <editor active="false" />
+    <frame x="57" y="-4" width="1309" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16666667" sideWeight="0.49564528" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15716487" sideWeight="0.49564528" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819724" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12943962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25335437" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24069676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24465558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721713" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3266564" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.24191064" sideWeight="0.49722883" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36363637" sideWeight="0.5043547" order="10" side_tool="true" content_ui="tabs" />
@@ -682,8 +626,8 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -702,9 +646,9 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34885556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721713" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.24159022" sideWeight="0.49722883" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.24159022" sideWeight="0.49722883" order="6" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -732,20 +676,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chartit/validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="244" column="15" selection-start-line="244" selection-start-column="15" selection-end-line="244" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chartit/chartdata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -930,25 +860,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/bootstrap-datepicker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.215311">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,14 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6220096">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jas/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1006,16 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-          <folding>
-            <element signature="e#30#59#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/maps/templates/maps.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1028,30 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/templates/graphs_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/templates/graphs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="52" selection-start-line="59" selection-start-column="0" selection-end-line="70" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1069,7 +942,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1079,14 +952,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="291" column="7" selection-start-line="291" selection-start-column="7" selection-end-line="291" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prognoz/templates/results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2916665">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
           <folding />
         </state>
@@ -1100,38 +973,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/views.py">
+    <entry file="file://$PROJECT_DIR$/prognoz/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="260" column="28" selection-start-line="260" selection-start-column="28" selection-end-line="260" selection-end-column="28" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456842145589" expanded="true" signature="1125:1302" placeholder="select max(d..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="1510:1763" placeholder="select cast ..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="2616:2792" placeholder="select max(d..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="2991:3166" placeholder="select dt,da..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="3324:3575" placeholder="select cast ..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="18053:18231" placeholder="select min(d..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="18410:18656" placeholder="select cast ..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="18955:19132" placeholder="select min(d..dbo._data..." />
-            <marker date="1456842145589" expanded="true" signature="19311:19683" placeholder="select cast(..dbo._data..." />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datadb/templates/request.html">
+    <entry file="file://$PROJECT_DIR$/datadb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.666666">
-          <caret line="117" column="22" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jas/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="69" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/add.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="29" selection-start-line="2" selection-start-column="12" selection-end-line="63" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/exporting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.520193">
+        <state vertical-scroll-proportion="0.0">
           <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.5">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#30#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/templates/graphs_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.166667">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/templates/graphs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.041667">
+          <caret line="71" column="0" selection-start-line="66" selection-start-column="5" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/templates/request.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.291667">
+          <caret line="120" column="2" selection-start-line="120" selection-start-column="2" selection-end-line="120" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="4" selection-start-line="143" selection-start-column="4" selection-end-line="143" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datadb/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4526112">
+          <caret line="439" column="81" selection-start-line="439" selection-start-column="81" selection-end-line="439" selection-end-column="81" />
+          <folding>
+            <marker date="1456930750588" expanded="true" signature="1072:1245" placeholder="select max(d..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="1072:1248" placeholder="select min(d..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="1456:1711" placeholder="select cast ..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="5383:5559" placeholder="select max(d..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="5758:5933" placeholder="select dt,da..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="6091:6342" placeholder="select cast ..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="24885:25063" placeholder="select min(d..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="25242:25488" placeholder="select cast ..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="25787:25964" placeholder="select min(d..dbo._data..." />
+            <marker date="1456930750588" expanded="true" signature="26143:26515" placeholder="select cast(..dbo._data..." />
           </folding>
         </state>
       </provider>

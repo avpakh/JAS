@@ -131,12 +131,21 @@ class RequestAv(models.Model):
     value_min = models.DecimalField('    Минимальное значение за сутки   ',max_digits=6,decimal_places=2)
     value_max = models.DecimalField('    Максимальное значение за сутки  ',max_digits=6,decimal_places=2)
     value_avg = models.DecimalField('    Уровень от отметки 0 станции АГС (среднее значение за сутки)  ',max_digits=6,decimal_places=2)
+    value_minBC = models.DecimalField('   Минимальное значение за сутки (БС)   ',max_digits=6,decimal_places=2)
+    value_maxBC = models.DecimalField('   Максимальное значение за сутки (БС)   ',max_digits=6,decimal_places=2)
+    value_avgBC=models.DecimalField(' Уровень до бровки',null=True,max_digits=6,decimal_places=3)
+    value_avgBC1=models.DecimalField('Превышение над бровкой до 50 см',null=True,max_digits=6,decimal_places=3)
+    value_avgBC2=models.DecimalField('Превышение над бровкой до 80 см',null=True,max_digits=6,decimal_places=3)
+    value_avgBC3=models.DecimalField('Превышение над бровкой до 2 м',null=True,max_digits=6,decimal_places=3)
+    value_avgBC4=models.DecimalField('Превышение над бровкой свыше 2 м',null=True,max_digits=6,decimal_places=3)
+    value_avgBC50=models.DecimalField('Уровень - 50 см над бровкой',null=True,max_digits=6,decimal_places=3)
+    value_avgBC60=models.DecimalField('Уровень до бровки',null=True,max_digits=6,decimal_places=3)
 
     class Meta:
         db_table = u'Request'
 
     def __unicode__(self):
-        return u" %s %s %s %s %s" % (self.id_station,self.date_observation,self.value_min,self.value_max,self.value_avg)
+        return u" %s %s %s %s %s %s %s %s %s %s %s %s " % (self.id_station,self.date_observation,self.value_min,self.value_max,self.value_avg,self.value_min,self.value_max,self.value_avgBC,self.value_avgBC1,self.value_avgBC2,self.value_avgBC3,self.value_avgBC4)
 
 
 class RequestData(models.Model):
@@ -160,9 +169,6 @@ class RequestData(models.Model):
 
     def __unicode__(self):
         return u" %s %s %s %s %s %s %s %s %s %s " % (self.dt_observation,self.date_observation,self.value_min,self.value_max,self.value_avg,self.value_avgBC,self.value_avgBC1,self.value_avgBC2,self.value_avgBC3,self.value_avgBC4)
-
-
-
 
 
 class GraphData(models.Model):

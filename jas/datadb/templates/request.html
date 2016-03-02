@@ -117,9 +117,14 @@
 
     {% load chartit %}
 
-    {{ dtchart|load_charts:"chart-A" }}
+
+     {{ dtchart|load_charts:"chart-A,chart-B" }}
 
      <div id='chart-A' class="-area-chart" >  </div>
+
+     <div id='chart-B' class="-area-chart" >  </div>
+
+
 
     </div>
 

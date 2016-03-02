@@ -9,6 +9,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 from .models import DataAnalys
 from .models import GraphData
 from .models import RequestAv
+from .models import RequestData
 
 
 from leaflet.admin import LeafletGeoAdmin
@@ -27,6 +28,12 @@ class RequestAvAdmin(admin.ModelAdmin):
 
 	class Meta:
 		model = RequestAv
+	pass
+
+class RequestDataAdmin(admin.ModelAdmin):
+
+	class Meta:
+		model = RequestData
 	pass
 
 class StationAdmin(admin.ModelAdmin):
@@ -55,7 +62,8 @@ class DataHourAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Av, AvAdmin)
-admin.site.register(RequestAv, AvAdmin)
+admin.site.register(RequestAv, RequestAvAdmin)
+admin.site.register(RequestData, RequestDataAdmin)
 admin.site.register(AgsStation, LeafletGeoAdmin)
 admin.site.register(Station, StationAdmin)
 admin.site.register(DataAnalys,DataAnalysAdmin)
